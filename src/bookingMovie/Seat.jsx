@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 export class Seat extends Component {
   handleClick = (e) => {
+    console.log(e);
     this.props.dispatch({
       type: "UPDATE_STATUS",
       payload: e.target.value,
@@ -15,19 +16,7 @@ export class Seat extends Component {
         <td className="firstChar">{hang}</td>
         {danhSachGhe.map((item, index) => {
           if (!item.daDat) {
-            if (!item.dangChon) {
-              return (
-                <td key={index}>
-                  <button
-                    value={item.soGhe}
-                    onClick={this.handleClick}
-                    className="ghe"
-                  >
-                    {item.soGhe}
-                  </button>
-                </td>
-              );
-            } else {
+            if (item.dangChon) {
               return (
                 <td key={index}>
                   <button
@@ -40,15 +29,25 @@ export class Seat extends Component {
                 </td>
               );
             }
-          } else {
             return (
               <td key={index}>
-                <button disabled className="gheDuocChon">
+                <button
+                  value={item.soGhe}
+                  onClick={this.handleClick}
+                  className="ghe"
+                >
                   {item.soGhe}
                 </button>
               </td>
             );
           }
+          return (
+            <td key={index}>
+              <button disabled className="gheDuocChon">
+                {item.soGhe}
+              </button>
+            </td>
+          );
         })}
       </tr>
     );

@@ -66,7 +66,7 @@ export class SelectedSeat extends Component {
             })}
             <tr>
               <td style={{ color: "white" }}>Tổng tiền</td>
-              <td style={{ color: "orange" }}>1000</td>
+              <td style={{ color: "orange" }}>75000</td>
               <td>
                 <button className="btn btn-success text-warning">Đặt vé</button>
               </td>
