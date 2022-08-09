@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 export class Seat extends Component {
   handleClick = (e) => {
+    console.log(this.props.seat);
     this.props.dispatch({
       type: "UPDATE_STATUS",
       payload: e.target.value,
@@ -53,4 +54,10 @@ export class Seat extends Component {
   }
 }
 
-export default connect()(Seat);
+const mapStateToProps = (state) => {
+  return {
+    seatList: state.seat.seatList,
+  };
+};
+
+export default connect(mapStateToProps)(Seat);

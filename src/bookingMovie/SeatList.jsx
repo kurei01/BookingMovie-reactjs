@@ -25,9 +25,7 @@ export class SeatList extends Component {
             </tr>
 
             {this.props.seatList?.map((item, index) => {
-              if (item.hang !== "") {
-                return <Seat key={index} seat={item} />;
-              }
+              return <Seat key={index} seat={item} />;
             })}
           </tbody>
         </table>

@@ -1,23 +1,6 @@
 const initialState = {
   seatList: [
     {
-      hang: "",
-      danhSachGhe: [
-        { soGhe: "1", gia: 0 },
-        { soGhe: "2", gia: 0 },
-        { soGhe: "3", gia: 0 },
-        { soGhe: "4", gia: 0 },
-        { soGhe: "5", gia: 0 },
-        { soGhe: "6", gia: 0 },
-        { soGhe: "7", gia: 0 },
-        { soGhe: "8", gia: 0 },
-        { soGhe: "9", gia: 0 },
-        { soGhe: "10", gia: 0 },
-        { soGhe: "11", gia: 0 },
-        { soGhe: "12", gia: 0 },
-      ],
-    },
-    {
       hang: "A",
       danhSachGhe: [
         { soGhe: "A1", gia: 75000, daDat: false, dangChon: true },
