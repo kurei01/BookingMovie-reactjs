@@ -2,7 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 export class SelectedSeat extends Component {
+  handleClickDel = (e) => {
+    this.props.dispatch({
+      type: "UPDATE_STATUS",
+      payload: e.target.value,
+    });
+  };
+  handleClickConfirmTicket = () => {
+    this.props.dispatch({
+      type: "BOOK_TICKET",
+    });
+  };
   render() {
+    let sum = 0;
     return (
       <div>
         <h1
@@ -40,6 +52,7 @@ export class SelectedSeat extends Component {
             {this.props.seatList.map((rowSeat) => {
               return rowSeat.danhSachGhe.map((seat, index) => {
                 if (seat.dangChon) {
+                  sum += seat.gia;
                   return (
                     <tr key={index}>
                       <td style={{ color: "white" }}>{seat.soGhe}</td>
@@ -55,6 +68,8 @@ export class SelectedSeat extends Component {
                             margin: "2px 0",
                             padding: "0 5px",
                           }}
+                          value={seat.soGhe}
+                          onClick={this.handleClickDel}
                         >
                           X
                         </button>
@@ -66,9 +81,14 @@ export class SelectedSeat extends Component {
             })}
             <tr>
               <td style={{ color: "white" }}>Tổng tiền</td>
-              <td style={{ color: "orange" }}>75000</td>
+              <td style={{ color: "orange" }}>{sum}</td>
               <td>
-                <button className="btn btn-success text-warning">Đặt vé</button>
+                <button
+                  onClick={this.handleClickConfirmTicket}
+                  className="btn btn-success text-warning"
+                >
+                  Đặt vé
+                </button>
               </td>
             </tr>
           </tbody>

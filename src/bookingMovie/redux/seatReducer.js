@@ -202,6 +202,17 @@ const reducer = (state = initialState, action) => {
         );
       });
       return { ...state, seatList: cloneSeatList };
+    case "BOOK_TICKET":
+      const dupSeatList = [...state.seatList];
+      dupSeatList.map((rowSeat) => {
+        rowSeat.danhSachGhe.map((seat) =>
+          seat.dangChon
+            ? ((seat.dangChon = !seat.dangChon), (seat.daDat = true))
+            : rowSeat
+        );
+      });
+      alert("chúc bạn xem phim vui vẻ");
+      return { ...state, seatList: dupSeatList };
     default:
       return state;
   }

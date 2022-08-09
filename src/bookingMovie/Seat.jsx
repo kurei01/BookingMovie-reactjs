@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 export class Seat extends Component {
   handleClick = (e) => {
-    console.log(e);
     this.props.dispatch({
       type: "UPDATE_STATUS",
       payload: e.target.value,
